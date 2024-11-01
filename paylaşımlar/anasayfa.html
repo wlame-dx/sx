@@ -1,129 +1,160 @@
 <style>
 /* From Uiverse.io by vinodjangid07 */ 
-.navigation-card {
+.messageBox {
+  width: fit-content;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2d2d2d;
+  padding: 0 15px;
+  border-radius: 10px;
+  border: 1px solid rgb(63, 63, 63);
+}
+.messageBox:focus-within {
+  border: 1px solid rgb(110, 110, 110);
+}
+.fileUploadWrapper {
+  width: fit-content;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#file {
+  display: none;
+}
+.fileUploadWrapper label {
+  cursor: pointer;
   width: fit-content;
   height: fit-content;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 30px;
-  background-color: rgb(255, 255, 255);
-  padding: 15px 20px;
-  border-radius: 50px;
+  position: relative;
 }
-.tab {
+.fileUploadWrapper label svg {
+  height: 18px;
+}
+.fileUploadWrapper label svg path {
+  transition: all 0.3s;
+}
+.fileUploadWrapper label svg circle {
+  transition: all 0.3s;
+}
+.fileUploadWrapper label:hover svg path {
+  stroke: #fff;
+}
+.fileUploadWrapper label:hover svg circle {
+  stroke: #fff;
+  fill: #3c3c3c;
+}
+.fileUploadWrapper label:hover .tooltip {
+  display: block;
+  opacity: 1;
+}
+.tooltip {
+  position: absolute;
+  top: -40px;
+  display: none;
+  opacity: 0;
+  color: white;
+  font-size: 10px;
+  text-wrap: nowrap;
+  background-color: #000;
+  padding: 6px 10px;
+  border: 1px solid #3c3c3c;
+  border-radius: 5px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.596);
+  transition: all 0.3s;
+}
+#messageInput {
+  width: 200px;
+  height: 100%;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding-left: 10px;
+  color: white;
+}
+#messageInput:focus ~ #sendButton svg path,
+#messageInput:valid ~ #sendButton svg path {
+  fill: #3c3c3c;
+  stroke: white;
+}
+
+#sendButton {
+  width: fit-content;
+  height: 100%;
+  background-color: transparent;
+  outline: none;
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
-  overflow: hidden;
-  background-color: rgb(252, 252, 252);
-  padding: 15px;
-  border-radius: 50%;
   cursor: pointer;
-  text-decoration: none;
   transition: all 0.3s;
 }
-.tab:hover {
-  background-color: rgb(223, 223, 223);
+#sendButton svg {
+  height: 18px;
+  transition: all 0.3s;
 }
+#sendButton svg path {
+  transition: all 0.3s;
+}
+#sendButton:hover svg path {
+  fill: #3c3c3c;
+  stroke: white;
+}
+
   </style>
 
 /* From Uiverse.io by vinodjangid07 */ 
-<div class="navigation-card">
-  <a href="#" class="tab">
-    <svg
-      class="svgIcon"
-      viewBox="0 0 104 100"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+<div class="messageBox">
+  <div class="fileUploadWrapper">
+    <label for="file">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 337 337">
+        <circle
+          stroke-width="20"
+          stroke="#6c6c6c"
+          fill="none"
+          r="158.5"
+          cy="168.5"
+          cx="168.5"
+        ></circle>
+        <path
+          stroke-linecap="round"
+          stroke-width="25"
+          stroke="#6c6c6c"
+          d="M167.759 79V259"
+        ></path>
+        <path
+          stroke-linecap="round"
+          stroke-width="25"
+          stroke="#6c6c6c"
+          d="M79 167.138H259"
+        ></path>
+      </svg>
+      <span class="tooltip">Add an image</span>
+    </label>
+    <input type="file" id="file" name="file" />
+  </div>
+  <input required="" placeholder="Message..." type="text" id="messageInput" />
+  <button id="sendButton">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 664 663">
       <path
-        d="M100.5 40.75V96.5H66V68.5V65H62.5H43H39.5V68.5V96.5H3.5V40.75L52 4.375L100.5 40.75Z"
-        stroke="black"
-        stroke-width="7"
+        fill="none"
+        d="M646.293 331.888L17.7538 17.6187L155.245 331.888M646.293 331.888L17.753 646.157L155.245 331.888M646.293 331.888L318.735 330.228L155.245 331.888"
+      ></path>
+      <path
+        stroke-linejoin="round"
+        stroke-linecap="round"
+        stroke-width="33.67"
+        stroke="#6c6c6c"
+        d="M646.293 331.888L17.7538 17.6187L155.245 331.888M646.293 331.888L17.753 646.157L155.245 331.888M646.293 331.888L318.735 330.228L155.245 331.888"
       ></path>
     </svg>
-  </a>
-
-  <a href="#" class="tab">
-    <svg
-      width="104"
-      height="100"
-      viewBox="0 0 104 100"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <rect
-        x="21.5"
-        y="3.5"
-        width="60"
-        height="60"
-        rx="30"
-        stroke="black"
-        stroke-width="7"
-      ></rect>
-      <g clip-path="url(#clip0_41_27)">
-        <mask
-          id="mask0_41_27"
-          style="mask-type:luminance"
-          maskUnits="userSpaceOnUse"
-          x="0"
-          y="61"
-          width="104"
-          height="52"
-        >
-          <path
-            d="M0 113C0 84.2812 23.4071 61 52.1259 61C80.706 61 104 84.4199 104 113H0Z"
-            fill="white"
-          ></path>
-        </mask>
-        <g mask="url(#mask0_41_27)">
-          <path
-            d="M-7 113C-7 80.4152 19.4152 54 52 54H52.2512C84.6973 54 111 80.3027 111 112.749H97C97 88.0347 76.9653 68 52.2512 68H52C27.1472 68 7 88.1472 7 113H-7ZM-7 113C-7 80.4152 19.4152 54 52 54V68C27.1472 68 7 88.1472 7 113H-7ZM52.2512 54C84.6973 54 111 80.3027 111 112.749V113H97V112.749C97 88.0347 76.9653 68 52.2512 68V54Z"
-            fill="black"
-          ></path>
-        </g>
-      </g>
-      <defs>
-        <clipPath id="clip0_41_27">
-          <rect
-            width="104"
-            height="39"
-            fill="white"
-            transform="translate(0 61)"
-          ></rect>
-        </clipPath>
-      </defs>
-    </svg>
-  </a>
-
-  <a href="#" class="tab">
-    <svg
-      width="101"
-      height="114"
-      viewBox="0 0 101 114"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <circle
-        cx="46.1726"
-        cy="46.1727"
-        r="29.5497"
-        transform="rotate(36.0692 46.1726 46.1727)"
-        stroke="black"
-        stroke-width="7"
-      ></circle>
-      <line
-        x1="61.7089"
-        y1="67.7837"
-        x2="97.7088"
-        y2="111.784"
-        stroke="black"
-        stroke-width="7"
-      ></line>
-    </svg>
-  </a>
+  </button>
 </div>
-
